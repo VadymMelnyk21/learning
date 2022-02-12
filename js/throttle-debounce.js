@@ -53,5 +53,56 @@ document.addEventListener(
     )
 );
 
+// mouse
+const mouseOutput = document.querySelector('.output.mouse');
+const moeThrottle = document.querySelector('.output.mouse-trailing');
+const mouseDebounce = document.querySelector('.output.mouse-debounce');
 
 
+const eventMove = {
+    move: 0,
+    moveThrottle: 0,
+    moveDebounce: 0,
+};
+
+document.addEventListener(
+    'mousemove',
+    () => {
+        eventMove.move += 1;
+        mouseOutput.textContent = eventMove.move;
+    }
+);
+
+document.addEventListener(
+    'mousemove',
+    _.throttle(() => {
+        eventMove.moveThrottle += 1;
+        moeThrottle.textContent = eventMove.moveThrottle;
+    }, 300,)
+);
+
+
+document.addEventListener(
+    'mousemove',
+    _.debounce(() => {
+        eventMove.moveDebounce += 1;
+        mouseDebounce.textContent = eventMove.moveDebounce;
+    }, 300,
+        // {
+        //     trailing: false, leading: true,
+        // }
+    )
+);
+
+// button
+
+const buttonOutput = document.querySelector('.output.but-on');
+let nazhat = 0;
+
+document.addEventListener(
+    'keydown',
+    () => {
+        nazhat += 1;
+        buttonOutput.textContent = nazhat;
+    }
+)
