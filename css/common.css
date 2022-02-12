@@ -36,3 +36,12 @@ p {
 .img__pic {
   border: 1px solid aqua;
 }
+
+.img__item {
+  width: 780px;
+  border: 1px solid tomato;
+}
+
+.img__item:not(:last-child) {
+  margin-bottom: 10px;
+}
