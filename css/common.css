@@ -32,3 +32,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.img__pic {
+  border: 1px solid aqua;
+}
