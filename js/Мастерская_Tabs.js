@@ -15,10 +15,18 @@ refs.controls.addEventListener('click', event => {
     
     if (currentControl) {
         currentControl.classList.remove('controls__item--active')
+
+        const paneId = currentControl.getAttribute('href').slice(1);
+        const pane = refs.panes.querySelector(`#${paneId}`);
+        pane.classList.remove('pane--active');
     }
 
     const controlItem = event.target;
     controlItem.classList.add('controls__item--active')
 
-    
+    const paneId = controlItem.getAttribute('href').slice(1);
+
+    const pane = refs.panes.querySelector(`#${paneId}`);
+    pane.classList.add('pane--active')
+
 })
