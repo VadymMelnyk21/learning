@@ -3,14 +3,17 @@ class Tabs {
         rootSelector,
         activeControlClass = 'active',
         activePaneClass = 'active',
+        activeTab = '1',
 
     }) {
         this._refs = this._getRefs(rootSelector);
         this._activeControlClass = activeControlClass;
         this._activePaneClass = activePaneClass;
+        this._activeTabIdx = activeTab - 1;
 
         this._bindEvents();
 
+        this._setActiveTab();
     }
 
     _getRefs(root) {
@@ -36,24 +39,50 @@ class Tabs {
             return;
         }
 
-        const currentControl = this._refs.controls.querySelector(
-            `.${this._activeControlClass}`);
-
-
-        if (currentControl) {
-            currentControl.classList.remove(this._activeControlClass);
-
-            const paneId = this._getPaneId(currentControl);
-            const pane = this._getPaneById(paneId);
-            pane.classList.remove(this._activePaneClass);
-        }
+        this._removeActiveTab();
 
         const controlItem = event.target;
         controlItem.classList.add(this._activeControlClass);
 
         const paneId = this._getPaneId(controlItem);
+        this._setActivePane(paneId);
+    }
+
+    _setActiveTab() {
+        const consoleItems = this._refs.controls.querySelectorAll('a');
+        const control = consoleItems[this._activeTabIdx];
+
+        control.classList.add(this._activeControlClass);
+
+        const paneId = this._getPaneId(control);
+        this._setActivePane(paneId);
+
+    }
+
+    _removeActiveTab() {
+        const currentControl = this._refs.controls.querySelector(
+            `.${this._activeControlClass}`);
+
+
+        if (!currentControl) {
+            return;
+        }
+
+        currentControl.classList.remove(this._activeControlClass);
+
+        const paneId = this._getPaneId(currentControl);
+        this._removePaneId(paneId);
+
+    }
+
+    _setActivePane(paneId) {
         const pane = this._getPaneById(paneId);
         pane.classList.add(this._activePaneClass);
+    }
+
+    _removePaneId(paneId) {
+        const pane = this._getPaneById(paneId);
+        pane.classList.remove(this._activePaneClass);
     }
 
     _getPaneId(control) {
@@ -70,4 +99,12 @@ const tabs1 = new Tabs({
     rootSelector: '#tabs-1',
     activeControlClass: 'controls__item--active',
     activePaneClass: 'pane--active',
+    activeTab: 1,
+});
+
+const tabs2 = new Tabs({
+    rootSelector: '#tabs-2',
+    activeControlClass: 'controls__item--active',
+    activePaneClass: 'pane--active',
+    activeTab: 2,
 });

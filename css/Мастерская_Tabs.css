@@ -17,6 +17,9 @@ body {
 .tabs {
     max-width: 600px;
 }
+.tabs:not(:last-child) {
+    margin-bottom: 20px;
+}
 
 .controls {
     display: flex;
@@ -32,7 +35,7 @@ body {
 }
 
 .controls__item--active {
-    background-color: palevioletred;
+    background-color: rgb(76, 189, 50);
     color: white;
 }
 
