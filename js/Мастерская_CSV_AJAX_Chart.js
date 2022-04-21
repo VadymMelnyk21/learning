@@ -1,36 +1,54 @@
 const ctx = document.querySelector('.js-chart').getContext('2d');
+const Global_TEMPERATURE = 14;
+
+fetchData()
+    .then(parseData)
+    .then(getLabelAndData)
+    .then(({ years, temps }) => drawChart(years, temps))
 
 function fetchData() {
-    fetch('../DataBase/ZonAnn.Ts+dSST.csv')
+    return fetch('../DataBase/ZonAnn.Ts+dSST.csv')
         .then(res => res.text())
-        .then((data) => {
-            const parsedData = Papa.parse(data, { header: true, }).data;
+}
 
-            const lables = parsedData.map(entry => entry.Year);
-            console.log(lables);
+function parseData(data) {
+    return Papa.parse(data, { header: true, }).data;
+}
 
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: lables,
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1,
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
+function getLabelAndData(data) {
+    return data.reduce(
+        (acc, entry) => {
+            acc.years.push(entry.Year);
+            acc.temps.push(Number(entry.Glob) + Global_TEMPERATURE);
+
+            return acc;
+        }, { years: [], temps: [] })
+}
+
+function drawChart(labels, data) {
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Средняя глобальная температура',
+                data,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    ticks: {
+                        callback(value) {
+                            return value + '°';
                         }
                     }
                 }
-            });
-        })
+            }
+        }
+    });
 }
-
-fetchData()
-
