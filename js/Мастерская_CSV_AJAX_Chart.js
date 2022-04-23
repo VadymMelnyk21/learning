@@ -7,7 +7,7 @@ fetchData()
     .then(({ years, temps, north, south }) => drawChart(years, temps, north, south))
 
 function fetchData() {
-    return fetch('../DataBase/ZonAnn.Ts+dSST.csv')
+    return fetch('https://vadymmelnyk21.github.io/learning/DataBase/ZonAnn.Ts+dSST.csv')
         .then(res => res.text())
 }
 
