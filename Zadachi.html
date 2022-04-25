@@ -6,38 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/zadachi.css" />
   </head>
   <body>
     <a href="index.html">Назат</a>
     <h1>Задачі</h1>
-    <h2>Равлик</h2>
-    <pre>
+    <div class="ravlyk zadachi-container">
+      <h2>Равлик</h2>
+      <pre>
       Потрібно створити функцію яка буде рахувати за скільки днів Равлик зможе виповзти з колодязя 
       функція приймає 1 параметр глибину колодязя, 
       функція повертає кількість днів яку равлик витратив на шлях. 
       В день Равлик проповзає на 7 м в гору, а за ніч опускається на 2 м в низ
-    </pre>
-    <form class="lengthForm">
-      <label>
-        Вирахувати кількість необхідних днів
-        <input
-          type="text"
-          name="lengthWell"
-          autocomplete="off"
-          placeholder="Глибина колодязя: метрів"
-        />
-      </label>
-      <button type="submit">Вирахувати</button>
-    </form>
+    </pre
+      >
+      <form class="lengthForm">
+        <label>
+          Вирахувати кількість необхідних днів
+          <input
+            type="text"
+            name="lengthWell"
+            autocomplete="off"
+            placeholder="Глибина колодязя: метрів"
+          />
+        </label>
+        <button type="submit">Вирахувати</button>
+      </form>
 
-    <div>
-      <b>
-        Равлику необхідно
-        <span class="ravlykTotal">?</span>
-        <span class="RavEnd"></span>
-      </b>
+      <div>
+        <b>
+          Равлику необхідно
+          <span class="ravlykTotal">?</span>
+          <span class="RavEnd"></span>
+        </b>
+      </div>
+      <div><pre class="functionRavlykPre"></pre></div>
     </div>
-    <div><pre class="functionRavlykPre"></pre></div>
+
+    <div class="numbers zadachi-container">
+      <h2>Порядок чисел</h2>
+      <pre>
+        Потрібно пребрати масив і зробити щоб числа в ньому були всі в порядку зростаня
+        Масив який потрібно опрацювати [1, 2, 3, 1, 5, 6, 1, 1, 9]
+        Має стати ось таким [1,2,3,4,5,6,7,8,9]
+      </pre>
+      <div class="numbers__task">
+        <div>
+          <pre class="functionNumbers">
+for (let i = 0; i < numbers.length; i += 1) {
+  if (i) {
+    const currentValue = numbers[i];
+    const previousValue = numbers[i - 1];
+
+    if (currentValue !== previousValue + 1) {
+      numbers[i] = previousValue + 1;
+    }
+  }
+}
+console.log(numbers); // [1,2,3,4,5,6,7,8,9]
+        </pre
+          >
+        </div>
+        <div class="numbersInteractyv">
+          <div class="numbersInteractyv__btn-container">
+            <button type="button" class="numbersInteractyv__btn">1</button>
+            <button type="button" class="numbersInteractyv__btn">2</button>
+            <button type="button" class="numbersInteractyv__btn">3</button>
+            <button type="button" class="numbersInteractyv__btn">4</button>
+            <button type="button" class="numbersInteractyv__btn">5</button>
+            <button type="button" class="numbersInteractyv__btn">6</button>
+            <button type="button" class="numbersInteractyv__btn">7</button>
+            <button type="button" class="numbersInteractyv__btn">8</button>
+            <button type="button" class="numbersInteractyv__btn">9</button>
+          </div>
+          <button type="button" class="numbersInteractyv__btn-clear">
+            Очистити
+          </button>
+          <p>Введені числа</p>
+          <div class="numbersInteractyv__array"></div>
+          <button type="button" class="numbersInteractyv__btn-show">
+            Показати Результат
+          </button>
+          <div class="numbersInteractyv__total"></div>
+        </div>
+      </div>
+    </div>
     <script src="./js/Zadachi.js" type="module"></script>
   </body>
 </html>

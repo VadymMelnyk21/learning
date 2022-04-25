@@ -65,6 +65,73 @@ function ravlykSpeed(length) {
 
 functionRavlykPre.innerHTML = ravlykSpeed;
 
+// -- Numbers -- //
+const btnContainer = document.querySelector('.numbersInteractyv__btn-container');
+const array = document.querySelector('.numbersInteractyv__array');
+const total = document.querySelector('.numbersInteractyv__total');
+const clear = document.querySelector('.numbersInteractyv__btn-clear');
+const show = document.querySelector('.numbersInteractyv__btn-show');
 
-// const str = '12345';
-// console.log(str[str.length - 1]);
+let numbersArray = [];
+
+btnContainer.addEventListener('click', currentNumber);
+clear.addEventListener('click', clearArray);
+show.addEventListener('click', showTotal);
+
+function currentNumber(e) {
+    const btnContent = e.target.textContent;
+
+    if (e.target.nodeName !== 'BUTTON') {
+        // console.log('ne to');
+        return;
+    }
+    numbersArray.push(Number(btnContent));
+    // console.log(numbersArray);
+    addArray(numbersArray)
+}
+
+function addArray(arrayRef) {
+    array.innerHTML = arrayRef;
+}
+
+function clearArray() {
+    numbersArray = [];
+    array.innerHTML = '';
+    total.innerHTML = '';
+}
+
+function showTotal() {
+    const numbers = numbersArray;
+
+    for (let i = 0; i < numbers.length; i += 1) {
+        if (i) {
+            const currentValue = numbers[i];
+            const previousValue = numbers[i - 1];
+
+            if (currentValue !== previousValue + 1) {
+                numbers[i] = previousValue + 1;
+            }
+        }
+    }
+    showTotalNumber(numbers);
+    // console.log(numbersArray);
+}
+
+function showTotalNumber(value) {
+    total.innerHTML = value;
+}
+
+// console.log(numbersArray);
+// const numbers = [1, 2, 3, 1, 5, 6, 1, 1, 9];
+
+// for (let i = 0; i < numbers.length; i += 1) {
+//     if (i) {
+//         const currentValue = numbers[i];
+//         const previousValue = numbers[i - 1];
+
+//         if (currentValue !== previousValue + 1) {
+//             numbers[i] = previousValue + 1;
+//         }
+//     }
+// }
+// console.log(numbers);

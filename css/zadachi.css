@@ -1,0 +1,37 @@
+.zadachi-container{
+    border: 2px solid #8e8d8d;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.numbersInteractyv {
+    text-align: center;
+    padding: 10px;
+    width: 300px;
+    border: 2px solid rgb(34, 201, 201);
+}
+
+.numbersInteractyv__btn-container{
+    margin-bottom: 10px;
+}
+
+.numbersInteractyv__btn-clear{
+    margin-bottom: 5px;
+}
+
+.numbersInteractyv__array,
+.numbersInteractyv__total{
+    margin-right: auto;
+    margin-left: auto;
+    width: 240px;
+    height: 30px;
+    border: 2px solid #8e8d8d;
+}
+
+.numbersInteractyv__array:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.numbersInteractyv__btn-show{
+    margin-bottom: 5px;
+}
