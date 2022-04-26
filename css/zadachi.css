@@ -35,3 +35,10 @@
 .numbersInteractyv__btn-show{
     margin-bottom: 5px;
 }
+
+.two-for__task-one,
+.two-for__task-two {
+    border: 2px solid #8e8d8d;
+    padding: 10px;
+    width: 300px;
+}

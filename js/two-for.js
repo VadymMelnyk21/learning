@@ -43,6 +43,8 @@ console.log(products);
 
 ///////////////////////////////////////////////////////////////
 
+const two = document.querySelector('.two-for__task-two');
+
 // Мутувати обєкт так щоб в ньому були тільки унікальні імена
 // Потім перебрати його і вивести імена по черзі в консолі
 // Використовувати цикл for для перебору
@@ -68,10 +70,13 @@ for (let i = 0; i < updateNames.length; i += 1) {
         }
     }
 }
-console.log(names);
+// console.log(names);
 
 const totalNames = Object.values(names)
 
 for (let k = 0; k < totalNames.length; k += 1) {
     console.log(totalNames[k]);
 }
+two.innerHTML = Object.values(names).join(' ');
+
+
