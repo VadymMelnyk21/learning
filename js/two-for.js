@@ -24,10 +24,10 @@ const products = [{
 }];
 
 for (let i = 0; i < products.length; i += 1) {
-    console.log(products[i]);
+    // console.log(products[i]);
     for (let j = i + 1; j < products.length; j += 1) {
-        console.log(products[i]);
-        console.log(products[j]);
+        // console.log(products[i]);
+        // console.log(products[j]);
 
         if (products[i].id === products[j].id) {
             products[i].qty += products[j].qty

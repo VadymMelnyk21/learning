@@ -4,12 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/zadachi.css" />
     <title>Document</title>
   </head>
   <body>
     <a href="index.html">Назат</a>
     <h1>2 for</h1>
+    <div class="zadachi-container">
+      <pre>
+    Знайти об’єкти з однаковими id 
+    Параметри qty додти а однакові id видалити
+</pre
+      >
+      <pre>
+const products = [{
+        id: 'sku1',
+        qty: 1,
+    }, {
+        id: 'sku2',
+        qty: 2,
+    }, {
+        id: 'sku3',
+        qty: 3,
+    }, {
+        id: 'sku1',
+        qty: 6,
+    }, {
+        id: 'sku1',
+        qty: 8,
+    }, {
+        id: 'sku2',
+        qty: 19,
+    }, {
+        id: 'sku4',
+        qty: 1,
+    }];
 
+for (let i = 0; i < products.length; i += 1) {
+    // console.log(products[i]);
+    for (let j = i + 1; j < products.length; j += 1) {
+        // console.log(products[i]);
+        // console.log(products[j]);
+
+        if (products[i].id === products[j].id) {
+            products[i].qty += products[j].qty
+            products.splice(j, 1)
+            j -= 1
+        }
+    }
+}
+console.log(products);
+    </pre
+      >
+    </div>
+    <div class="zadachi-container"></div>
     <script src="./js/two-for.js"></script>
   </body>
 </html>
