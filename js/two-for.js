@@ -69,3 +69,9 @@ for (let i = 0; i < updateNames.length; i += 1) {
     }
 }
 console.log(names);
+
+const totalNames = Object.values(names)
+
+for (let k = 0; k < totalNames.length; k += 1) {
+    console.log(totalNames[k]);
+}
