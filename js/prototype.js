@@ -30,3 +30,14 @@ function messageDisplay(e) {
 // }
 
 // currentName.haveAreYou(currentName);
+
+////////////////////////////////////////
+// const Artem = 'Artem';
+// String.prototype.__proto__ = Object.create(null, {
+//     privet: {
+//         value: function (name) {
+//             console.log(`Ny privet ${name}`);
+//         }
+//     }
+// })
+// Artem.privet(Artem);
