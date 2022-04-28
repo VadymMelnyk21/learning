@@ -1,4 +1,6 @@
 const entryName = document.querySelector('[data-form]');
+const answerRef = document.querySelector('.answer');
+
 let currentName;
 entryName.addEventListener('submit', messageDisplay);
 
@@ -8,10 +10,14 @@ function messageDisplay(e) {
     currentName = e.currentTarget.entrName.value.trim();
     if (currentName) {
         String.prototype.haveAreYou = function (name) {
-            alert(`Привіт ${name} як все маєш`);
+            const value = prompt(`Привіт ${name} як все маєш?`);
+            if (value !== null) {
+                answerRef.insertAdjacentHTML('beforeend', `<li class="answer__item">${value}</>`);
+            }
         }
         currentName.haveAreYou(currentName);
     }
+    entryName.reset();
 }
 
 
