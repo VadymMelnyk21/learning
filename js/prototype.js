@@ -59,3 +59,30 @@ const frigate = Object.create(ship);
 frigate.gold = '200 песо';
 frigate.crew = '50 чоловік';
 
+frigateProto.addEventListener('submit', createParamProto);
+frigateObject.addEventListener('submit', createParamObject)
+
+function createParamProto(e) {
+    e.preventDefault();
+
+    const { entrValue, entrNumber } = e.currentTarget.elements;
+    if (entrValue.value && entrNumber.value) {
+        shipProtoRef.insertAdjacentHTML('beforeend', `<li>${entrValue.value
+            }: ${entrNumber.value}, </li>`);
+        frigateProto.reset();
+    }
+}
+
+function createParamObject(e) {
+    e.preventDefault();
+
+    const { entrValue, entrNumber } = e.currentTarget.elements;
+    if (entrValue.value && entrNumber.value) {
+        shipOriginalRef.insertAdjacentHTML('beforeend', `<li>frigate.${entrValue.value
+            }= '${entrNumber.value}', </li>`);
+        frigateObject.reset();
+    }
+}
+
+
+console.log(frigate);
