@@ -1,4 +1,5 @@
-.answer__item {
+.answer__item,
+.ship__item--accent {
     color: green;
     font-weight: 700;
 }
@@ -7,4 +8,8 @@
     border: 2px solid #8e8d8d;
     padding: 10px;
     margin-bottom: 15px;
+}
+
+.form-proto {
+    margin-top: 10px;
 }

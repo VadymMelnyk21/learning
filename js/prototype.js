@@ -67,10 +67,21 @@ function createParamProto(e) {
 
     const { entrValue, entrNumber } = e.currentTarget.elements;
     if (entrValue.value && entrNumber.value) {
-        shipProtoRef.insertAdjacentHTML('beforeend', `<li>${entrValue.value
-            }: ${entrNumber.value}, </li>`);
-        frigateProto.reset();
+        const createLiProto =
+            `<li class="ship__item--accent">${entrValue.value}: ${entrNumber.value},</li>`;
+
+        shipProtoRef.insertAdjacentHTML('beforeend', createLiProto);
     }
+
+    newParamsProto(entrValue, entrNumber);
+
+    frigateProto.reset();
+}
+
+
+
+function newParamsProto(entrValue, entrNumber) {
+    ship[entrValue.value] = entrNumber.value;
 }
 
 function createParamObject(e) {
@@ -78,11 +89,16 @@ function createParamObject(e) {
 
     const { entrValue, entrNumber } = e.currentTarget.elements;
     if (entrValue.value && entrNumber.value) {
-        shipOriginalRef.insertAdjacentHTML('beforeend', `<li>frigate.${entrValue.value
+        shipOriginalRef.insertAdjacentHTML('beforeend', `<li class="ship__item--accent">frigate.${entrValue.value
             }= '${entrNumber.value}', </li>`);
+
+        newParamsObject(entrValue, entrNumber);
+
         frigateObject.reset();
     }
 }
 
-
+function newParamsObject(entrValue, entrNumber) {
+    frigate[entrValue.value] = entrNumber.value;
+}
 console.log(frigate);
