@@ -43,12 +43,19 @@ function messageDisplay(e) {
 // Artem.privet(Artem);
 
 
+//////////////////////////////////////////////
+
+const frigateProto = document.querySelector('[data-formFrigate-proto]');
+const frigateObject = document.querySelector('[data-formFrigate-object]');
+const shipProtoRef = document.querySelector('.shipProto');
+const shipOriginalRef = document.querySelector('.shipOriginal');
+
 const ship = {
     deck: 3,
     sail: 9,
 }
 
 const frigate = Object.create(ship);
-frigate.gold = 200;
-frigate.crew = '50 person';
-console.log(frigate);
+frigate.gold = '200 песо';
+frigate.crew = '50 чоловік';
+

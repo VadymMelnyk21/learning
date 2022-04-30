@@ -12,7 +12,8 @@
   <body>
     <a href="../index.html">Назат</a>
     <h1>Прототипне наслідування "Prototype"</h1>
-    <pre>
+    <div class="container">
+      <pre>
     let currentName;
 
     String.prototype.haveAreYou = function (name) {
@@ -20,19 +21,72 @@
     }
     currentName.haveAreYou(currentName);
         </pre
-    >
-    <div class="stringProto">
-      <form data-form>
+      >
+      <div class="stringProto">
+        <form data-form>
+          <input
+            type="text"
+            name="entrName"
+            placeholder="Введіть ім’я"
+            autocomplete="off"
+          />
+          <button type="submit">І Шооо</button>
+        </form>
+        <ul class="answer"></ul>
+      </div>
+    </div>
+
+    <div class="frigate container">
+      <div>
+        <p>const ship = {</p>
+        <ul class="shipProto">
+          <li>deck: 3,</li>
+          <li>sail: 9,</li>
+        </ul>
+        <p>}</p>
+
+        <p>const frigate = Object.create(ship);</p>
+        <ul class="shipOriginal">
+          <li>frigate.gold = '200 песо'</li>
+          <li>frigate.crew = '50 чоловік'</li>
+        </ul>
+      </div>
+      <form data-formFrigate-proto>
+        <label>
+          Прототип
+          <input
+            type="text"
+            name="entrValue"
+            placeholder="Властивість"
+            autocomplete="off"
+          />
+        </label>
         <input
           type="text"
-          name="entrName"
-          placeholder="Введіть ім’я"
+          name="entrNumber"
+          placeholder="значення"
           autocomplete="off"
         />
-        <button type="submit">І Шооо</button>
+        <button type="submit">Дадати</button>
       </form>
-      <ul class="answer"></ul>
-      <div></div>
+      <form data-formFrigate-object>
+        <label>
+          Наслідник
+          <input
+            type="text"
+            name="entrValue"
+            placeholder="Властивість"
+            autocomplete="off"
+          />
+        </label>
+        <input
+          type="text"
+          name="entrNumber"
+          placeholder="значення"
+          autocomplete="off"
+        />
+        <button type="submit">Дадати</button>
+      </form>
     </div>
     <script src="../js/prototype.js" type="module"></script>
   </body>
