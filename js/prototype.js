@@ -41,3 +41,14 @@ function messageDisplay(e) {
 //     }
 // })
 // Artem.privet(Artem);
+
+
+const ship = {
+    deck: 3,
+    sail: 9,
+}
+
+const frigate = Object.create(ship);
+frigate.gold = 200;
+frigate.crew = '50 person';
+console.log(frigate);

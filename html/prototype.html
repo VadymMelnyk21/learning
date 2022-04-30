@@ -11,19 +11,24 @@
 
   <body>
     <a href="../index.html">Назат</a>
-    <h1>Прототипне наслідування стрінги "Prototype"</h1>
+    <h1>Прототипне наслідування "Prototype"</h1>
     <pre>
     let currentName;
 
     String.prototype.haveAreYou = function (name) {
     const value = prompt(`Привіт ${name} як все маєш?`);
-
+    }
     currentName.haveAreYou(currentName);
         </pre
     >
     <div class="stringProto">
       <form data-form>
-        <input type="text" name="entrName" placeholder="Введіть ім’я" />
+        <input
+          type="text"
+          name="entrName"
+          placeholder="Введіть ім’я"
+          autocomplete="off"
+        />
         <button type="submit">І Шооо</button>
       </form>
       <ul class="answer"></ul>
