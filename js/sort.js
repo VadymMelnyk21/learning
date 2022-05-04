@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/zadachi.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <a href="../index.html">Назат</a>
-    <h1>Sort</h1>
-    <script src="../js/sort.js" type="module"></script>
-    <div class="zadachi-container">
-      <pre>
-          
 const createUser = function (name, age) {
     return {
         name,
@@ -46,8 +29,3 @@ console.log(users);
 
 const sort = [...users].sort((a, b) => a.age - b.age);
 console.log(sort)
-        </pre
-      >
-    </div>
-  </body>
-</html>
